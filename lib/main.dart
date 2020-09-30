@@ -30,9 +30,18 @@ class _HomeState extends State<Home> {
   ];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: this._PageList[this._currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
+    var screenSize = MediaQuery.of(context).size;
+    bool _largeScreen;
+    Widget _bottomBar;
+    if(screenSize.width>600){
+      //平板布局
+      _largeScreen = true;
+      _bottomBar = null;
+      print('平板布局');
+    }else{
+      //手机布局
+      _largeScreen = false;
+      _bottomBar = BottomNavigationBar(
           currentIndex: this._currentIndex,
           onTap: (int index) {
             print(index);
@@ -44,7 +53,14 @@ class _HomeState extends State<Home> {
             BottomNavigationBarItem(
                 icon: Icon(Icons.home), title: Text('home')),
             BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('blog'))
-          ]),
+          ]);
+      print('手机布局');
+    }
+
+
+    return Scaffold(
+      body: this._PageList[this._currentIndex],
+      bottomNavigationBar: _bottomBar,
     );
   }
 }

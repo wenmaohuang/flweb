@@ -13,10 +13,8 @@ class _HomePageState extends State<HomePage> {
   var array = [];
   var obj = {};
   final myController = TextEditingController();
-  final myController2 = TextEditingController();
 
   FocusNode _focusNode = FocusNode();
-  FocusNode _focusNode2 = FocusNode();
 
   Future fetchPost() async {
     try {
@@ -50,25 +48,13 @@ class _HomePageState extends State<HomePage> {
         launch(url);
       }
     });
-    _focusNode2.addListener(() {
-      if (_focusNode2.hasFocus) {
-        print('得到焦点');
-        print(myController2);
 
-      } else {
-        print('失去焦点');
-        // var url = 'http://www.baidu.com/s?wd=${myController.text}';
-        // launch(url);
-        print(myController2);
-      }
-    });
 
   }
 
   @override
   void dispose() {
     //页面销毁时
-    myController2.dispose();
 
     myController.dispose();
     super.dispose();
@@ -155,152 +141,23 @@ class _HomePageState extends State<HomePage> {
     }
 
 
-    List<Widget> urlTitles = []; //先建一个数组用于存放循环生成的widget
-    var newKeysResultState;
-
-
-    Widget _buildUrlInput(){
-
-      List<Widget> urlTitlesState = []; //先建一个数组用于存放循环生成的widget
-      List<dynamic> newKeys = urlList.keys.toList();
-      newKeys.sort((a, b) {
-        List<int> al = a.codeUnits;
-        List<int> bl = b.codeUnits;
-        for (int i = 0; i < al.length; i++) {
-          if (bl.length <= i) return 1;
-          if (al[i] > bl[i]) {
-            return 1;
-          } else if (al[i] < bl[i]) return -1;
-        }
-        return 0;
-      });
-
-      return Column(
-        children: [
-          Container(
-            width: 350,
-            height: 40.0,
-            padding: new EdgeInsets.only(left: 10),
-            decoration: new BoxDecoration(
-              color: Colors.blue[200],
-              borderRadius: new BorderRadius.circular(25.0),
-            ),
-            child: TextFormField(
-              style: new TextStyle(color: Colors.white70, fontSize: 14),
-              //输入文字颜色和大小
-              onChanged: (String val) {
-
-                newKeys.forEach((element) {
-                  RegExp reg = new RegExp(r"^"+myController2.text+".+");
-                  var newKeysResult = reg.stringMatch(element);
-                  print('${newKeysResult}');
-
-                  Widget urlInputState;
-                  Widget urlInput;
-                  setState(() {
-                    newKeysResultState = newKeysResult;
-                  });
-
-
-
-                });
-
-              },
-              controller: myController2,
-              focusNode: _focusNode2,
-
-              decoration: InputDecoration(
-                hintText: '请输入关键字搜索',
-                //文字提示
-                hintStyle: new TextStyle(color: Colors.white70),
-                //提示文字颜色
-                icon: Icon(Icons.search, color: Colors.white70),
-                //图标
-                border: InputBorder.none, //去掉下划线
-              ),
-            ),
-          ),
-        ],
-      );
-    }
-
-    Widget _buildUrlList() {
-
-      // print('${urlTitles}aaa');
-      //
-      // urlTitles.add(Row(
-      //     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      //     children: <Widget>[
-      //       RaisedButton(
-      //         onPressed: () {
-      //           var url = urlList[newKeysResultState];
-      //           launch(url);
-      //         },
-      //         child: Text(newKeysResultState),
-      //       ),
-      //       // new Text(item)
-      //     ]));
-
-      List<Widget> urlTitles = []; //先建一个数组用于存放循环生成的widget
-      for (var item in array) {
-        urlTitles.add(new Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              new RaisedButton(
-                onPressed: () {
-                  // var url = 'http://www.baidu.com/s?wd=${item}';
-                  var url = urlList[newKeysResultState];
-
-                  launch(url);
-                },
-                // child: Text(item),
-                child: Text('${newKeysResultState}'),
-
-              ),
-              // new Text(item)
-            ]));
-      }
-      print('${urlTitles}aaa');
-
-      // Widget newUrlTitles = Column(children: urlTitles);
-      return urlTitles.length>0 ? Column(
-        children: [
-          Container(
-            //1 注意：父容器的宽高是200 减去pading后是180
-            padding: EdgeInsets.all(10),
-            color: Colors.green,
-            width: 200,
-            height: 200,
-            child: new OverflowBox(
-                maxHeight: 200, //2 不能小于父容器的高度180
-                child: SingleChildScrollView(
-                  child: Column( children:urlTitles),
-                )
-
-            ),
-          ),
-        ],
-      ) : Container();
-
-    }
-
     Widget _buildInfoList() {
       List<Widget> titles = []; //先建一个数组用于存放循环生成的widget
       for (var item in array) {
         titles.add(
-          Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                new RaisedButton(
-                  onPressed: () {
-                    var url = 'http://www.baidu.com/s?wd=${item}';
-                    launch(url);
-                  },
-                  child: Text(item),
-                ),
-                // new Text(item)
-              ])
-            );
+            Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                  new RaisedButton(
+                    onPressed: () {
+                      var url = 'http://www.baidu.com/s?wd=${item}';
+                      launch(url);
+                    },
+                    child: Text(item),
+                  ),
+                  // new Text(item)
+                ])
+        );
       }
       print('${titles}bbb');
       return titles.length > 0
@@ -318,6 +175,7 @@ class _HomePageState extends State<HomePage> {
       )
           : Container();
     }
+
 
     return Container(
       decoration: BoxDecoration(
@@ -338,10 +196,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
           ),
-          Column(children: [
-            _buildUrlInput(),
-            _buildUrlList()
-          ],)
+          UrlList()
 
         ],
       ),

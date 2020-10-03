@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
 Map urlListData = {
   'uniapp': "https://uniapp.dcloud.io/quickstart",
   'dart': "https://dart.cn/guides/language/language-tour",
@@ -78,27 +77,19 @@ Map urlListData = {
   'angulartantui': "https://ng.ant.design/components/collapse/en#ng-content",
 };
 
-Map urlListDataSort;
+Map urlListDataSort = new Map();
 List newKeys = urlListData.keys.toList();
-
-
-
 class UrlList extends StatefulWidget {
   @override
 
   _UrlListState createState() => _UrlListState();
 }
-
 class _UrlListState extends State<UrlList> {
   List<Widget> urlTitles = []; //先建一个数组用于存放循环生成的widget
   Map newUrlListData = new Map();
-
-
-
   FocusNode _focusNode2 = FocusNode();
   final myController2 = TextEditingController();
   Map newUrlListDataState;
-
   @override
   void initState() {
     _focusNode2.addListener(() {
@@ -112,29 +103,26 @@ class _UrlListState extends State<UrlList> {
         print(myController2);
       }
     });
-    // newKeys.sort((a, b) {
-    //   List<int> al = a.codeUnits;
-    //   List<int> bl = b.codeUnits;
-    //   for (int i = 0; i < al.length; i++) {
-    //     if (bl.length <= i) return 1;
-    //     if (al[i] > bl[i]) {
-    //       return 1;
-    //     } else if (al[i] < bl[i]) return -1;
-    //   }
-    //   return 0;
-    // });
-    //
-    // newKeys.forEach((element) {
-    //   urlListDataSort[element]=urlListData[element];
-    // });
-    //
-    // print('${newKeys}aq');
 
+    List newKeys = urlListData.keys.toList();
+    newKeys.sort((a, b) {
+      List<int> al = a.codeUnits;
+      List<int> bl = b.codeUnits;
+      for (int i = 0; i < al.length; i++) {
+        if (bl.length <= i) return 1;
+        if (al[i] > bl[i]) {
+          return 1;
+        } else if (al[i] < bl[i]) return -1;
+      }
+      return 0;
+    });
+    // print('${newKeys}sw');
+    newKeys.forEach((element) {
+      urlListDataSort[element] = urlListData[element];
+    });
+    print('${urlListDataSort}sw');
     setState(() {
-
-
-
-      newUrlListDataState = urlListData;
+    newUrlListDataState = {};
     });
   }
 
@@ -145,26 +133,8 @@ class _UrlListState extends State<UrlList> {
 
     super.dispose();
   }
-
-
-
   Widget _buildUrlInput() {
-
-    print('${newKeys}');
-
     List<Widget> urlTitlesState = []; //先建一个数组用于存放循环生成的widget
-    // List newKeys = urlListData.keys.toList();
-    // newKeys.sort((a, b) {
-    //   List<int> al = a.codeUnits;
-    //   List<int> bl = b.codeUnits;
-    //   for (int i = 0; i < al.length; i++) {
-    //     if (bl.length <= i) return 1;
-    //     if (al[i] > bl[i]) {
-    //       return 1;
-    //     } else if (al[i] < bl[i]) return -1;
-    //   }
-    //   return 0;
-    // });
     return Column(
       children: [
         Container(
@@ -180,51 +150,30 @@ class _UrlListState extends State<UrlList> {
             //输入文字颜色和大小
             onChanged: (String val) {
               List<String> newKeysResult = [];
-              print('${urlListData.keys.toList().length}za');
-
+              // print('${urlListData.keys.toList().length}za');
               List urlListDataKeys = urlListData.keys.toList();
               urlListDataKeys.forEach((element) {
                 RegExp reg = new RegExp(r"^" + myController2.text + ".+");
                 String regResult = reg.stringMatch(element);
                 if (regResult != null) {
-                  // newUrlListData[regResult]=urlListData[regResult];
-                  // print('${regResult}FFF');
-                  // print('${urlListData[regResult]}FFF');
-                  // newUrlListData[]
                   newUrlListData[regResult]=urlListData[regResult];
-                  print('${newUrlListData}FFF');
-
+                  // print('${newUrlListData}FFF');
                 }
                 if(myController2.text == ''){
                   newUrlListData = {};
                 }
               });
-              
-              
-
-
-              print('${newUrlListData}ccc');
-
+              // print('${newUrlListData}ccc');
               if (myController2.text != ''){
                   setState(() {
                     newUrlListDataState = newUrlListData;
                   });
               }else{
                   setState(() {
-                    newUrlListDataState = urlListData;
+                    newUrlListDataState = urlListDataSort;
                   });
 
               }
-
-              // if(newUrlListData != null) {
-              //   setState(() {
-              //     newUrlListDataState = newUrlListData;
-              //   });
-              // }else{
-              //   setState(() {
-              //     newUrlListDataState = urlListData;
-              //   });
-              // }
             },
             controller: myController2,
             focusNode: _focusNode2,
@@ -269,7 +218,7 @@ class _UrlListState extends State<UrlList> {
         Container(
           //1 注意：父容器的宽高是200 减去pading后是180
           padding: EdgeInsets.all(10),
-          color: Colors.green,
+          // color: Colors.green,
           // width: 200,
           height: 200,
           child: new OverflowBox(
@@ -284,8 +233,12 @@ class _UrlListState extends State<UrlList> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [_buildUrlInput(), _buildUrlList()],
+    return Container(
+      padding: EdgeInsets.all(20),
+
+      child: Column(
+        children: [_buildUrlInput(), _buildUrlList()],
+      ),
     );
   }
 }

@@ -40,20 +40,22 @@ class _HomeState extends State<Home> {
       print('平板布局');
     }else{
       //手机布局
-      _largeScreen = false;
-      _bottomBar = BottomNavigationBar(
-          currentIndex: this._currentIndex,
-          onTap: (int index) {
-            print(index);
-            setState(() {
-              this._currentIndex = index;
-            });
-          },
-          items: [
-            BottomNavigationBarItem(
-                icon: Icon(Icons.home), title: Text('home')),
-            BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('blog'))
-          ]);
+      _largeScreen = true;
+      _bottomBar = null;
+
+      // _bottomBar = BottomNavigationBar(
+      //     currentIndex: this._currentIndex,
+      //     onTap: (int index) {
+      //       print(index);
+      //       setState(() {
+      //         this._currentIndex = index;
+      //       });
+      //     },
+      //     items: [
+      //       BottomNavigationBarItem(
+      //           icon: Icon(Icons.home), title: Text('home')),
+      //       BottomNavigationBarItem(icon: Icon(Icons.home), title: Text('blog'))
+      //     ]);
       print('手机布局');
     }
 

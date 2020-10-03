@@ -4,12 +4,17 @@ class Footer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
         color: Colors.black87,
+        height: 150,
+        padding: new EdgeInsets.all(20),
 
         child: Row(
+          mainAxisAlignment:MainAxisAlignment.spaceAround,
 
           children: [
 
             Column(
+              mainAxisAlignment:MainAxisAlignment.spaceAround,
+
               children: [
                 Text(
                   '风移影动',
@@ -30,6 +35,7 @@ class Footer extends StatelessWidget {
               ],
             ),
             Column(
+              mainAxisAlignment:MainAxisAlignment.spaceAround,
 
               children: [
                 Text('相关链接',
@@ -49,6 +55,8 @@ class Footer extends StatelessWidget {
               ],
             ),
             Column(
+              mainAxisAlignment:MainAxisAlignment.spaceAround,
+
               children: [
                 Text('联系我',
                   style: TextStyle(
@@ -74,6 +82,7 @@ class Footer extends StatelessWidget {
             )
           ],
         )
+
 
     )
     ;

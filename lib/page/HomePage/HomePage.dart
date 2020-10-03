@@ -63,10 +63,12 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Widget _InfoInput;
-
     var screenSize = MediaQuery
         .of(context)
         .size;
+    var deviceHeight = screenSize.height;
+    print('${deviceHeight}wc');
+
     if (screenSize.width > 600) {
       //平板布局
       print('平板布局');
@@ -103,41 +105,75 @@ class _HomePageState extends State<HomePage> {
     } else {
       //手机布局
       print('手机布局');
-      _InfoInput = PhysicalModel(
-        color: Colors.blue,
-        elevation: 6,
+      // _InfoInput = PhysicalModel(
+      //   color: Colors.blue,
+      //   elevation: 6,
+      //   child: Container(
+      //     padding:
+      //     new EdgeInsets.only(top: 50, left: 40, right: 40, bottom: 19),
+      //     height: 100,
+      //     child: Container(
+      //       width: 350,
+      //       height: 40.0,
+      //       padding: new EdgeInsets.only(left: 10),
+      //       decoration: new BoxDecoration(
+      //         color: Colors.blue[200],
+      //         borderRadius: new BorderRadius.circular(25.0),
+      //       ),
+      //       child: TextFormField(
+      //         style: new TextStyle(color: Colors.white70, fontSize: 14),
+      //         //输入文字颜色和大小
+      //         controller: myController,
+      //         onChanged: (String val) {
+      //           fetchPost();
+      //         },
+      //         focusNode: _focusNode,
+      //         decoration: InputDecoration(
+      //           hintText: '请输入关键字搜索',
+      //           //文字提示
+      //           hintStyle: new TextStyle(color: Colors.white70),
+      //           //提示文字颜色
+      //           icon: Icon(Icons.search, color: Colors.white70),
+      //           //图标
+      //           border: InputBorder.none, //去掉下划线
+      //         ),
+      //       ),
+      //     ),
+      //   ),
+      // );
+      _InfoInput = Container(
+        padding: new EdgeInsets.only(top: 200, left: 40, right: 40, bottom: 19),
         child: Container(
-          padding:
-          new EdgeInsets.only(top: 50, left: 40, right: 40, bottom: 19),
-          child: Container(
-            width: 350,
-            height: 40.0,
-            padding: new EdgeInsets.only(left: 10),
-            decoration: new BoxDecoration(
-              color: Colors.blue[200],
-              borderRadius: new BorderRadius.circular(25.0),
-            ),
-            child: TextFormField(
-              style: new TextStyle(color: Colors.white70, fontSize: 14),
-              //输入文字颜色和大小
-              controller: myController,
-              onChanged: (String val) {
-                fetchPost();
-              },
-              focusNode: _focusNode,
-              decoration: InputDecoration(
-                hintText: '请输入关键字搜索',
-                //文字提示
-                hintStyle: new TextStyle(color: Colors.white70),
-                //提示文字颜色
-                icon: Icon(Icons.search, color: Colors.white70),
-                //图标
-                border: InputBorder.none, //去掉下划线
-              ),
+          width: 350,
+          height: 40.0,
+          padding: new EdgeInsets.only(left: 10),
+          decoration: new BoxDecoration(
+            color: Colors.blue[200],
+            borderRadius: new BorderRadius.circular(25.0),
+          ),
+          child: TextFormField(
+            style: new TextStyle(color: Colors.white70, fontSize: 14),
+            //输入文字颜色和大小
+            controller: myController,
+            onChanged: (String val) {
+              fetchPost();
+            },
+            focusNode: _focusNode,
+            decoration: InputDecoration(
+              hintText: '请输入关键字搜索',
+              //文字提示
+              hintStyle: new TextStyle(color: Colors.white70),
+              //提示文字颜色
+              icon: Icon(Icons.search, color: Colors.white70),
+              //图标
+              border: InputBorder.none, //去掉下划线
             ),
           ),
         ),
       );
+
+
+
     }
 
 
@@ -162,18 +198,16 @@ class _HomePageState extends State<HomePage> {
       print('${titles}bbb');
       return titles.length > 0
           ?  Container(
-        height: 200,
-        child: OverflowBox(
-            maxHeight: 300, //2 不能小于父容器的高度180
-
-            child:SingleChildScrollView(
-              child: Column(
-                children: titles,
-              ),
-            )
-        ),
+        height: deviceHeight-200,
+          child:SingleChildScrollView(
+            child: Column(
+              children: titles,
+            ),
+          )
       )
-          : Container();
+          : Container(
+        height: deviceHeight-380,
+      );
     }
 
 
@@ -187,7 +221,7 @@ class _HomePageState extends State<HomePage> {
       child: ListView(
         children: <Widget>[
           Container(
-            height:400,
+            // height:400,
               child: Column(
                 children: [
                   _InfoInput,

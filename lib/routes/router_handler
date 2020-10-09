@@ -1,0 +1,22 @@
+// import 'pagckage:flutter/material.dart';
+// //引入路由插件fluro 需要在pubspec.yaml文件中配置插件并下载才能引入
+// import 'pagckage:fluro/fluro.dart';
+// //引入路由跳转去到的部件
+// // import '../pages/user.dart';
+// import 'package:flweb/page/HomePage/HomePage.dart';
+
+import 'package:flutter/material.dart';
+import 'package:fluro/fluro.dart';
+import 'package:flweb/page/HomePage/HomePage.dart';
+import 'package:flweb/page/BlogPage/BlogPage.dart';
+
+Handler homeHandler = Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+  //params是跳转路由url?后面传递的参数，我们需要参数里面的id值并传递给跳转到的部件内
+  return HomePage();
+});
+
+Handler blogHandler = Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+  //params是跳转路由url?后面传递的参数，我们需要参数里面的id值并传递给跳转到的部件内
+  return BlogPage();
+});
+//下面还可以继续添加如上的路由跳转Handler

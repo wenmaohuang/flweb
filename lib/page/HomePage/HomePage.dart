@@ -5,16 +5,23 @@ import 'package:flweb/page/HomePage/Footer.dart';
 import 'package:flweb/page/HomePage/urlList.dart';
 
 class HomePage extends StatefulWidget {
+  HomePage({Key key}) : super(key: key);
+
   @override
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin {
   var array = [];
   var obj = {};
   final myController = TextEditingController();
 
+  @override
+  bool get wantKeepAlive => true; //必须重写
+
   FocusNode _focusNode = FocusNode();
+  // int currentIndex=0;
+  // var currentPage;
 
   Future fetchPost() async {
     try {
@@ -32,12 +39,13 @@ class _HomePageState extends State<HomePage> {
     }
   }
 
-
-
   @override
   void initState() {
     //页面初始化
     super.initState();
+
+
+    // currentPage=tabBodies[currentIndex];
 
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
@@ -48,9 +56,11 @@ class _HomePageState extends State<HomePage> {
         launch(url);
       }
     });
-
-
   }
+
+  final List<Widget> tabBodies=[
+    HomePage(),
+  ];
 
   @override
   void dispose() {
@@ -63,9 +73,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     Widget _InfoInput;
-    var screenSize = MediaQuery
-        .of(context)
-        .size;
+    var screenSize = MediaQuery.of(context).size;
     var deviceHeight = screenSize.height;
     print('${deviceHeight}wc');
 
@@ -171,69 +179,62 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       );
-
-
-
     }
-
 
     Widget _buildInfoList() {
       List<Widget> titles = []; //先建一个数组用于存放循环生成的widget
       for (var item in array) {
-        titles.add(
-            Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  new RaisedButton(
-                    onPressed: () {
-                      var url = 'http://www.baidu.com/s?wd=${item}';
-                      launch(url);
-                    },
-                    child: Text(item),
-                  ),
-                  // new Text(item)
-                ])
-        );
+        titles.add(Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              new RaisedButton(
+                onPressed: () {
+                  var url = 'http://www.baidu.com/s?wd=${item}';
+                  launch(url);
+                },
+                child: Text(item),
+              ),
+              // new Text(item)
+            ]));
       }
       print('${titles}bbb');
       return titles.length > 0
-          ?  Container(
-        height: deviceHeight-200,
-          child:SingleChildScrollView(
-            child: Column(
-              children: titles,
-            ),
-          )
-      )
+          ? Container(
+              height: deviceHeight - 200,
+              child: SingleChildScrollView(
+                child: Column(
+                  children: titles,
+                ),
+              ))
           : Container(
-        height: deviceHeight-380,
-      );
+              height: deviceHeight - 380,
+            );
     }
 
-
-    return Container(
-      decoration: BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage("images/4.jpg"),
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: ListView(
-        children: <Widget>[
-          Container(
-            // height:400,
-              child: Column(
-                children: [
-                  _InfoInput,
-                  _buildInfoList(),
-                  Footer(),
-                ],
-              ),
+    return Scaffold(
+        body:IndexedStack(children: [Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("images/4.jpg"),
+              fit: BoxFit.cover,
+            ),
           ),
-          UrlList()
-
-        ],
-      ),
+          child: ListView(
+            children: <Widget>[
+              Container(
+                // height:400,
+                child: Column(
+                  children: [
+                    _InfoInput,
+                    _buildInfoList(),
+                    Footer(),
+                  ],
+                ),
+              ),
+              UrlList()
+            ],
+          ),
+        )],)
     );
   }
 }

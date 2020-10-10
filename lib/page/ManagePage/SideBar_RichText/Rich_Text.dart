@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Select_Menu1.dart';
 import 'Select_Menu2.dart';
+import 'Upload.dart';
 
 class Rich_Text extends StatefulWidget {
   @override
@@ -44,7 +45,7 @@ class _Rich_TextState extends State<Rich_Text> {
     return Container(
 
       // width: 500,
-      //   height: 1000.0,
+      //   height: 700,
 
         padding: new EdgeInsets.all(50),
         decoration: new BoxDecoration(
@@ -52,7 +53,7 @@ class _Rich_TextState extends State<Rich_Text> {
           // borderRadius: new BorderRadius.circular(25.0),
         ),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.start,
 
 
           children: [
@@ -76,6 +77,8 @@ class _Rich_TextState extends State<Rich_Text> {
 
                 Container(
                   height: 40,
+                  margin: EdgeInsets.only(left:10,bottom: 20),
+
                   // padding:  EdgeInsets.only(left:50,right: 100),
                   width: screenSize,
                   child: TextField(
@@ -114,13 +117,15 @@ class _Rich_TextState extends State<Rich_Text> {
             SelectMenu2(),
 
             Container(
-              height: 500,
+              // height: 500,
               width: screenSize,
+              margin: EdgeInsets.only(left:17,bottom: 10),
+
               // padding:  EdgeInsets.only(left:50,right: 100),
               child: TextField(
                 keyboardType: TextInputType.multiline,
-                maxLines: 50,
-                minLines: 30,
+                maxLines: 50000,
+                minLines: 10,
                 decoration: const InputDecoration(
                   hintText: '输入',
                   filled: true,
@@ -139,7 +144,21 @@ class _Rich_TextState extends State<Rich_Text> {
                   ),
                 ),
               ),
-            )
+            ),
+            ImagePickerPage(),
+            RaisedButton(
+                highlightColor: Colors.blue,
+                // color: Colors.,
+                hoverColor: Colors.transparent,
+                elevation: 0,
+                child:Text('提交',
+                    style: TextStyle(
+                      fontSize: 18,
+                    )),
+                onPressed: () {
+                  // Navigator.pushNamed(context, '/manage/send');
+                }),
+
 
           ],
         ));

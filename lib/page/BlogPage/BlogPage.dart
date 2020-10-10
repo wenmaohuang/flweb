@@ -3,6 +3,12 @@ import 'package:flweb/page/Nav.dart';
 import 'package:flweb/main.dart';
 import 'package:flweb/page/BlogPage/ArticleMain.dart';
 import 'package:flweb/page/BlogPage/ArticleSearch.dart';
+import 'package:flweb/page/BlogPage/ArticleSelect.dart';
+import 'package:flweb/page/BlogPage/ArticleTop.dart';
+import 'package:flweb/page/BlogPage/ArticleHot.dart';
+import 'package:flweb/page/BlogPage/Visitor.dart';
+
+
 
 class BlogPage extends StatefulWidget {
   @override
@@ -32,7 +38,15 @@ class _BlogPageState extends State<BlogPage> with AutomaticKeepAliveClientMixin 
               Row(
                 mainAxisAlignment:MainAxisAlignment.spaceAround,
 
-                children: [ArticleMain(),ArticleSearch()],
+                children: [ArticleMain(),
+                Column(children: [
+                  ArticleSearch(),
+                  ArticleSelect(),
+                  ArticleTop(),
+                  ArticleHot(),
+                  Visitor()
+                ],)
+                ],
               ),
               // Text('blog')
             ],

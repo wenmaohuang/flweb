@@ -46,6 +46,8 @@ class _SelectMenu1State extends State<SelectMenu1> {
 
   LayerLink layerLink = new LayerLink();
   double inputHeight;
+  double inputWidth;
+
   GlobalKey anchorKey = GlobalKey();
 
   @override
@@ -57,7 +59,9 @@ class _SelectMenu1State extends State<SelectMenu1> {
         var offset =
             renderBox.localToGlobal(Offset(0.0, renderBox.size.height));
         setState(() {
-          inputHeight = offset.dy;
+          inputHeight = offset.dy+3;
+          inputWidth = offset.dx;
+
         });
 
         print('${inputHeight}ik');
@@ -79,13 +83,13 @@ class _SelectMenu1State extends State<SelectMenu1> {
       return new Positioned(
         width: screenSize,
         top: inputHeight,
-        left: 360,
+        left: inputWidth,
         child: new CompositedTransformFollower(
           offset: Offset(0.0, 50),
           link: layerLink,
           child: new Material(
             child: new Container(
-                color: Colors.grey,
+                // color: Colors.lightBlueAccent,
                 child: new Column(
                   children: <Widget>[
                     new ListTile(
@@ -147,6 +151,8 @@ class _SelectMenu1State extends State<SelectMenu1> {
         Container(
           height: 40,
           width: screenSize,
+          margin: EdgeInsets.only(left:10,bottom: 20),
+
           // padding:  EdgeInsets.only(left:50,right: 100),
           child: TextField(
             obscureText: false,

@@ -97,6 +97,7 @@ class _HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin 
             onChanged: (String val) {
               fetchPost();
             },
+            autofocus: true,
             focusNode: _focusNode,
             decoration: InputDecoration(
               hintText: '请输入关键字搜索',

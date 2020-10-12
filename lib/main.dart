@@ -110,7 +110,7 @@ class _HomeState extends State<Home> {
 
 // onGenerateRoute: onGenerateRoute
       onGenerateRoute: Application.router.generator,
-      initialRoute: '/manage',
+      initialRoute: '/',
 
       // routes: {
       //   '/': (context)=>HomePage(),

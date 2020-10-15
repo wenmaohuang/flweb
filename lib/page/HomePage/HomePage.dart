@@ -78,18 +78,18 @@ class _HomePageState extends State<HomePage>
   String myInputHistory = 'inputHistory';
   String myInputHistoryList = 'inputHistoryList';
 
-  save() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setString(myInputHistory, myController.text);
-  }
-
-  Future<String> get() async {
-    String inputHistory;
-
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    inputHistory = prefs.getString(myInputHistory);
-    return inputHistory;
-  }
+  // save() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setString(myInputHistory, myController.text);
+  // }
+  //
+  // Future<String> get() async {
+  //   String inputHistory;
+  //
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   inputHistory = prefs.getString(myInputHistory);
+  //   return inputHistory;
+  // }
   List<String> myInputList =[];
 
 
@@ -110,13 +110,10 @@ class _HomePageState extends State<HomePage>
 
   Future<List> getList() async {
     List inputHistoryList;
-
     SharedPreferences prefs = await SharedPreferences.getInstance();
     inputHistoryList = prefs.getStringList(myInputHistoryList);
     return inputHistoryList;
   }
-
-
   @override
   void initState() {
     //页面初始化
@@ -124,22 +121,6 @@ class _HomePageState extends State<HomePage>
     _focusNode.addListener(() {
       if (_focusNode.hasFocus) {
         print('得到焦点');
-        // Future<String> inputHistory = get();
-        // inputHistory.then((String inputHistory) {
-        //   print('${inputHistory}zaq');
-        //   List<String> arr = [];
-        //   if (inputHistory != null) {
-        //     arr.add(inputHistory);
-        //
-        //   }
-        //
-        //   setState(() {
-        //     array = arr;
-        //   });
-        //
-        //   print('${array}12');
-        // });
-
         Future<List> inputHistoryList = getList();
         inputHistoryList.then((List inputHistoryList) {
           print('${inputHistoryList}zaq');
@@ -151,18 +132,17 @@ class _HomePageState extends State<HomePage>
             });
 
           }
-
-
-
           print('${array}12');
         });
 
       } else {
         print('失去焦点');
         var url = 'http://www.baidu.com/s?wd=${myController.text}';
-        launch(url);
+        if(myController.text != ''){
+          saveList();
+          launch(url);
 
-        saveList();
+        }
       }
     });
   }

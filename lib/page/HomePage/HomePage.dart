@@ -21,43 +21,10 @@ class _HomePageState extends State<HomePage>
 
   var obj = {};
   final myController = TextEditingController();
-
-  // 获取  需要在async方法中获取
-  // getToken(data) async {
-  //   // String input = myController.text;
-  //   List<String> arr = await StorageUtil.getStringListItem('inputList');
-  //
-  //   arr.add(data);
-  //
-  //
-  //   if (arr.length > 8) {
-  //     arr.removeLast();
-  //   }
-  //   StorageUtil.setStringListItem('inputList', arr);
-  //
-  //
-  //   List inputList =
-  //   await StorageUtil.getStringListItem('inputList');
-  //   // if (inputList != null) {
-  //   //   // 跳转到首页
-  //   //   Navigator.pushReplacementNamed(context, "bottom_nav_bar");
-  //   // } else {
-  //   //   // 跳转到登陆页面
-  //   //   Navigator.pushReplacementNamed(context, "login");
-  //   // }
-  //   print('${inputList}za');
-  //   return inputList;
-  //
-  //
-  // }
-
   @override
   bool get wantKeepAlive => true; //必须重写
 
   FocusNode _focusNode = FocusNode();
-
-  // int currentIndex=0;
-  // var currentPage;
 
   Future fetchPost() async {
     try {
@@ -78,21 +45,8 @@ class _HomePageState extends State<HomePage>
   String myInputHistory = 'inputHistory';
   String myInputHistoryList = 'inputHistoryList';
 
-  // save() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   prefs.setString(myInputHistory, myController.text);
-  // }
-  //
-  // Future<String> get() async {
-  //   String inputHistory;
-  //
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   inputHistory = prefs.getString(myInputHistory);
-  //   return inputHistory;
-  // }
+
   List<String> myInputList =[];
-
-
   saveList() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     String myInput = myController.text;
@@ -103,11 +57,7 @@ class _HomePageState extends State<HomePage>
 
       prefs.setStringList(myInputHistoryList,myInputList);
     }
-
-
-
   }
-
   Future<List> getList() async {
     List inputHistoryList;
     SharedPreferences prefs = await SharedPreferences.getInstance();

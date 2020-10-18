@@ -1,5 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flweb/utils/CounterModel.dart';
+import 'package:provider/provider.dart';
+import 'package:flweb/utils/EventBus.dart';
 
 class SelectMenu2 extends StatefulWidget {
   @override
@@ -38,39 +41,55 @@ class Toast {
   }
 }
 
-
 class _SelectMenu2State extends State<SelectMenu2> {
-  TextEditingController _controller3;
+  // TextEditingController _controller3;
+  var _controller3 = new TextEditingController();
+  String _name;
+
   FocusNode focusNode = new FocusNode();
   OverlayEntry overlayEntry;
 
   LayerLink layerLink = new LayerLink();
   double inputHeight;
   double inputWidth;
+  GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
   GlobalKey anchorKey = GlobalKey();
+  double inputHeight3;
+
+  void _onChildSubmit3() {
+    final form = _formKey.currentState;
+    print('${form.validate()}88');
+    if (form.validate()) {
+      form.save();
+
+    }
+  }
 
   @override
   void initState() {
     super.initState();
+
+    eventBus.on<ChildSubmit3>().listen((event) {
+      // print(event.height);
+      _onChildSubmit3();
+      print('${event.height}qw');
+    });
+
+
     focusNode.addListener(() {
       if (focusNode.hasFocus) {
-
         RenderBox renderBox = anchorKey.currentContext.findRenderObject();
         var offset =
-        renderBox.localToGlobal(Offset(0.0, renderBox.size.height));
+            renderBox.localToGlobal(Offset(0.0, renderBox.size.height));
         setState(() {
-          inputHeight = offset.dy+3;
+          inputHeight = offset.dy + 3;
           inputWidth = offset.dx;
-
         });
 
-
         print('${inputHeight}ik');
-        double a=3.2222;
+        double a = 3.2222;
         print('${a}ol');
-
-
 
         overlayEntry = createSelectPopupWindow();
         Overlay.of(context).insert(overlayEntry);
@@ -78,6 +97,17 @@ class _SelectMenu2State extends State<SelectMenu2> {
         overlayEntry.remove();
       }
     });
+  }
+  void checkInputHeight3(){
+
+    if(_controller3.text == ''){
+      Provider.of<InputHeight3>(context,listen: false).getHeight3(65);
+
+    }else{
+      Provider.of<InputHeight3>(context,listen: false).getHeight3(40);
+
+    }
+
   }
 
   OverlayEntry createSelectPopupWindow() {
@@ -95,28 +125,55 @@ class _SelectMenu2State extends State<SelectMenu2> {
             child: new Container(
                 // color: Colors.lightBlueAccent,
                 child: new Column(
-                  children: <Widget>[
-                    new ListTile(
-                      title: new Text("选项3"),
-                      onTap: () {
-                        // Toast.show(context: context, message: "选择了选项3");
-                        setState(() {
-                          _controller3 = new TextEditingController(text: '选项3');
-                        });
-                        focusNode.unfocus();
-                      },
-                    ),
-                    new ListTile(
-                        title: new Text("选项4"),
-                        onTap: () {
-                          // Toast.show(context: context, message: "选择了选项4");
-                          setState(() {
-                            _controller3 = new TextEditingController(text: '选项4');
-                          });
-                          focusNode.unfocus();
-                        }),
-                  ],
-                )),
+              children: <Widget>[
+                new ListTile(
+                  title: new Text("选项3"),
+                  onTap: () {
+                    focusNode.unfocus();
+
+                    // Toast.show(context: context, message: "选择了选项3");
+                    setState(() {
+                      _controller3 = new TextEditingController(text: '选项3');
+                    });
+
+
+                    Future(() => throw 'we have a problem')
+                        .catchError((error) => print('$error'))
+                        .whenComplete(() => _onChildSubmit3())
+                        .whenComplete(() => checkInputHeight3())
+                    ;
+                    // Provider.of<InputModel1>(context, listen: true)
+                    //     .getInput(_controller3.text);
+
+
+                    Provider.of<InputModel3>(context, listen: false)
+                        .getInput(_controller3.text);
+
+                  },
+                ),
+                new ListTile(
+                    title: new Text("选项4"),
+                    onTap: () {
+                      focusNode.unfocus();
+
+                      // Toast.show(context: context, message: "选择了选项4");
+                      setState(() {
+                        _controller3 = new TextEditingController(text: '选项4');
+                      });
+
+                      Future(() => throw 'we have a problem')
+                          .catchError((error) => print('$error'))
+                          .whenComplete(() => _onChildSubmit3())
+                          .whenComplete(() => checkInputHeight3())
+                      ;
+                      // Provider.of<InputModel1>(context, listen: true)
+                      //     .getInput(_controller3.text);
+
+                      Provider.of<InputModel3>(context,listen: false).getInput(_controller3.text);
+
+                    }),
+              ],
+            )),
           ),
         ),
       );
@@ -124,51 +181,56 @@ class _SelectMenu2State extends State<SelectMenu2> {
     return overlayEntry;
   }
 
-
   @override
   Widget build(BuildContext context) {
+    inputHeight3 = Provider.of<InputHeight3>(context).height3;
+
+
     var screenSize = MediaQuery.of(context).size.width - 450;
 
     return Row(
       children: [
-        Text('*',
-
-            style:TextStyle(
-                color: Colors.red,
-                fontSize: 20
-
-            )
-        ),
-
+        Text('*', style: TextStyle(color: Colors.red, fontSize: 20)),
 
         Container(
-          height: 40,
+          height: inputHeight3,
           width: screenSize,
-          margin: EdgeInsets.only(left:10,bottom: 20),
+          margin: EdgeInsets.only(left: 10, bottom: 20),
 
           // padding:  EdgeInsets.only(left:50,right: 100),
-          child: TextField(
-            obscureText: false,
-            keyboardType: TextInputType.multiline,
-            maxLines: 5,
-            minLines: 1,
-            focusNode: focusNode,
-            key: anchorKey,
-            controller: _controller3,
-            decoration: const InputDecoration(
-              hintText: '....',
-              filled: true,
-              fillColor: Colors.white,
-              contentPadding: const EdgeInsets.symmetric(
-                  horizontal: 10, vertical: 10),
-              isDense: true,
-              border: const OutlineInputBorder(
-                gapPadding: 0,
-                borderRadius:
-                const BorderRadius.all(Radius.circular(4)),
-                borderSide: BorderSide(
-                  width: 1,
-                  style: BorderStyle.none,
+          child: Form(
+            key: _formKey,
+            child: TextFormField(
+              onFieldSubmitted: (v) => print("submit"),
+              onSaved: (val) => this._name = val,
+              validator: (val) =>
+              (val == null || val.isEmpty) ? "请输入商品名称" : null,
+              obscureText: false,
+              keyboardType: TextInputType.multiline,
+              maxLines: 5,
+              minLines: 1,
+              focusNode: focusNode,
+              key: anchorKey,
+              controller: _controller3,
+              onChanged: (String val){
+                _onChildSubmit3();
+                checkInputHeight3();
+
+              },
+              decoration: const InputDecoration(
+                hintText: '....',
+                filled: true,
+                fillColor: Colors.white,
+                contentPadding:
+                const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                isDense: true,
+                border: const OutlineInputBorder(
+                  gapPadding: 0,
+                  borderRadius: const BorderRadius.all(Radius.circular(4)),
+                  borderSide: BorderSide(
+                    width: 1,
+                    style: BorderStyle.none,
+                  ),
                 ),
               ),
             ),

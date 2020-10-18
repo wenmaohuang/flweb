@@ -32,23 +32,20 @@ class _BlogPageState extends State<BlogPage> with AutomaticKeepAliveClientMixin 
 
           body: IndexedStack(
           // index: childIndex,
-          children: [Column(
-            children: [
-              // Nav(),
-              Row(
-                mainAxisAlignment:MainAxisAlignment.spaceAround,
+          children: [Row(
+            mainAxisAlignment:MainAxisAlignment.spaceAround,
 
-                children: [ArticleMain(),
-                Column(children: [
+            children: [ArticleMain(),
+              Container(child: Column(
+                mainAxisAlignment:MainAxisAlignment.start,
+
+                children: [
                   ArticleSearch(),
                   ArticleSelect(),
                   ArticleTop(),
                   ArticleHot(),
                   Visitor()
-                ],)
-                ],
-              ),
-              // Text('blog')
+                ],),)
             ],
           ),],
         )

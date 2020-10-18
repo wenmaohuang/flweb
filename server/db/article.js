@@ -5,7 +5,7 @@ let articleSchema = new mongoose.Schema({
   title : {type: String,required: true},
   type : {type: String,required: true},
   tag : {type: String,required: true},
-  surface : {type:String,default: 'http://www.fyyd.vip/img/4.jpg'},
+  surface : {type:String,default: 'https://www.fyyd.vip/img/4.jpg'},
   content : {type:Object,required: true},
   readcount:{type:Number,require:true},
   year:{type:String,required:true},

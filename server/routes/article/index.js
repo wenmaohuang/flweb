@@ -2,6 +2,12 @@ const express = require('express')
 const articleDB = require("../../db/article");
 let router = express.Router()
 router.post('/send', (req, res) => {
+
+
+    console.log(req.body,'re');
+    console.log('iii');
+
+    let {word} = req.body;
   let { title, type, tag, surface, content, readcount, year, month, day } = req.body;
   //后端数据验证
   if (!title || !type ||  !tag || !content || !year || !month || !day ) {

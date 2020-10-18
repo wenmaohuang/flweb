@@ -12,6 +12,9 @@ var mongoose = require('mongoose')
 var app = express();
 
 
+
+
+
 // mongoose.connect("mongodb://localhost:27017/blog",{ useNewUrlParser: true, useUnifiedTopology: true })
 //     .then(()=>{console.log("数据库连接成功")})
 //     .catch(()=>{console.log("数据库连接失败")});

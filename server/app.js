@@ -12,7 +12,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../build/web')));
 app.use(express.static(path.join(__dirname, 'public')));
 app.get('*', function (request, response){
-    response.sendFile(path.resolve(__dirname, '../build/web', 'index.html'))
+    response.sendFile(path.resolve(__dirname, '../build/web/flweb', 'index.html'))
 })
 app.use((req, res, next) => {
     res.header({

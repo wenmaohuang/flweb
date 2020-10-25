@@ -8,7 +8,7 @@ import 'package:flweb/page/ManagePage/SideBar_RichText/SideBar_RichText.dart';
 
 class ManageSendRouter implements IRouterProvider{
 
-  static String blogPage = "/manage/send";
+  static String blogPage = "/flweb/manage/send";
   // static String registerPage = "/login/register";
 
   @override

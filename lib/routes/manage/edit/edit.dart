@@ -8,7 +8,7 @@ import 'package:flweb/page/ManagePage/SideBar_Edit/SideBar_Edit.dart';
 
 class ManageEditRouter implements IRouterProvider{
 
-  static String blogPage = "/manage/edit";
+  static String blogPage = "flweb/manage/edit";
   // static String registerPage = "/login/register";
 
   @override

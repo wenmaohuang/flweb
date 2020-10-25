@@ -44,8 +44,8 @@ import 'package:flweb/routes/manage/edit/edit.dart';
 
 class Routes {
   // static String root = '/';
-  static String home = '/';
-  static String blog = '/blog';
+  static String home = '/flweb/';
+  static String blog = '/flweb/blog';
   // static String blog = '/blog';
   static List<IRouterProvider> _listRouter = [];
 

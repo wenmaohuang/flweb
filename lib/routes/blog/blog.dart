@@ -8,7 +8,7 @@ import 'package:flweb/page/BlogPage/BlogPage.dart';
 
 class BlogRouter implements IRouterProvider{
 
-  static String blogPage = "/blog";
+  static String blogPage = "/flweb/blog";
   // static String registerPage = "/login/register";
 
   @override

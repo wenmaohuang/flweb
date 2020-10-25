@@ -28,7 +28,7 @@ class _ArticleMainState extends State<ArticleMain> {
 
   Future fetchPost() async {
     try {
-      final response = await Dio().post('http://localhost:3004/article/getShow', );
+      final response = await Dio().post('http://localhost:3004/flweb/article/getShow', );
       // print(1);
 
       var responseData = response.data;

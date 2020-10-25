@@ -67,7 +67,7 @@ class _FooterState extends State<Footer> {
 
                     onPressed:() {
                       // NavigatorUtils.push(context, BlogRouter.blogPage, replace: true);
-                      Navigator.pushNamed(context, '/blog');
+                      Navigator.pushNamed(context, '/flweb/blog');
                     }),
                 Text('日记',
                   style: TextStyle(

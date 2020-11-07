@@ -31,7 +31,7 @@ class _SideBarState extends State<SideBar> {
                     fontSize: 18,
                   )),
               onPressed: () {
-                Navigator.pushNamed(context, '/flweb/manage/send');
+                Navigator.pushNamed(context, '/manage/send');
               }),
           RaisedButton(
               highlightColor: Colors.blue,
@@ -43,7 +43,7 @@ class _SideBarState extends State<SideBar> {
                     fontSize: 18,
                   )),
               onPressed: () {
-                Navigator.pushNamed(context, '/flweb/manage/edit');
+                Navigator.pushNamed(context, '/manage/edit');
               }),
 
           Text('编辑文章')],)

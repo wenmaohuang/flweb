@@ -8,7 +8,7 @@ import 'package:flweb/page/ManagePage/SideBar_RichText/SideBar_RichText.dart';
 
 class ManageRouter implements IRouterProvider{
 
-  static String blogPage = "/flweb/manage";
+  static String blogPage = "/manage";
   // static String registerPage = "/login/register";
 
   @override

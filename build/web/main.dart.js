@@ -53698,7 +53698,7 @@ else P.ao("\u624b\u673a\u5e03\u5c40")
 s=new Z.DL(new Y.UQ(H.c([],t.a7)))
 T.ajH(s)
 $.aha=s
-return S.aaI(M.DT(null,T.B3(this.f,0),null),"/flweb/",s.gI8())}}
+return S.aaI(M.DT(null,T.B3(this.f,0),null),"/",s.gI8())}}
 S.yF.prototype={
 I:function(a,b){var s=null,r=t.t
 return M.av(s,T.ch(H.c([M.av(s,L.aq("\u70ed\u95e8\u6587\u7ae0",s,s,s,A.aV(s,s,s,s,s,s,s,s,s,s,s,20,s,s,s,s,!0,s,s,s,s,s,s),s),s,s,new S.bU(s,s,new F.c9(C.m,C.m,new Y.cy(C.nx,1,C.H),C.m),s,s,s,C.B),s,s,new V.ab(0,10,40,30),300),M.av(s,T.d7(H.c([M.av(new K.cJ(0,0),s,s,s,new S.bU(C.r9,s,s,K.a6B(new P.bw(25,25)),s,s,C.B),20,s,s,20),L.aq("title",s,s,s,A.aV(s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s)],r),C.a0,C.a3,C.a1),s,s,s,s,s,new V.ab(0,0,0,10),300)],r),C.am),C.ny,s,s,150,new V.ab(0,20,0,0),s,350)}}
@@ -53841,7 +53841,7 @@ ay:function(){this.b2()},
 I:function(a,b){var s=null,r=t.t
 return M.av(s,T.d7(H.c([T.ch(H.c([L.aq("\u98ce\u79fb\u5f71\u52a8",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s),L.aq("\u81ea\u7531\u81ea\u5728\u7684\u6d41\u6d6a",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s),L.aq("about me",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s)],r),C.am),T.ch(H.c([L.aq("\u76f8\u5173\u94fe\u63a5",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s),D.dQ(L.aq("\u535a\u5ba2",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s),s,s,s,s,new M.a04(b)),L.aq("\u65e5\u8bb0",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s)],r),C.am),T.ch(H.c([L.aq("\u8054\u7cfb\u6211",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s),L.aq("\u5730\u5740:\u5e7f\u5dde\u756a\u79ba\u5c0f\u9f99\u6751",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s),L.aq("QQ:648371113",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s),L.aq("\u90ae\u7bb1:648371113@qq.com",s,s,s,A.aV(s,s,C.j,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s)],r),C.am)],r),C.a0,C.am,C.a1),C.F,s,s,150,s,new V.ab(20,20,20,20),s)}}
 M.a04.prototype={
-$0:function(){K.il(this.a,"/flweb/blog",t._)},
+$0:function(){K.il(this.a,"/blog",t._)},
 $S:0}
 A.i4.prototype={
 ak:function(){var s=null,r=t.z
@@ -53917,7 +53917,7 @@ q=C.a7.h(0,200)
 p=K.hL(25)
 o=A.aV(l,l,C.x,l,l,l,l,l,l,l,l,14,l,l,l,l,!0,l,l,l,l,l,l)
 n=M.av(l,M.av(l,E.uS(!1,s,L.B8(l,C.he,l,l,l,l,l,!0,l,l,l,l,l,l,l,C.bO,l,l,l,!0,l,l,l,l,A.aV(l,l,C.x,l,l,l,l,l,l,l,l,l,l,l,l,l,!0,l,l,l,l,l,l),k,l,L.n7(C.hr,C.x),!1,l,l,l,l,l,l,l,l,l,l,l,l,l,l),r,l,l,1,l,!1,new A.a0y(m),l,l,l,o,l),l,l,new S.bU(q,l,l,p,l,l,C.B),40,l,new V.ab(10,0,0,0),350),l,l,l,l,l,new V.ab(40,200,40,19),l)}s=t.t
-return M.DT(l,T.B3(H.c([M.av(l,B.aaF(H.c([M.av(l,T.ch(H.c([n,new A.a0v(m,i).$0(),new M.rf(l)],s),C.a3),l,l,l,l,l,l,l),new D.vb(l)],s)),l,l,new S.bU(l,new X.zL(new L.q8("images/4.jpg"),C.pK),l,l,l,l,C.B),l,l,l,l)],s),0),l)}}
+return M.DT(l,T.B3(H.c([M.av(l,B.aaF(H.c([M.av(l,T.ch(H.c([n,new A.a0v(m,i).$0(),new M.rf(l)],s),C.a3),l,l,l,l,l,l,l),new D.vb(l)],s)),l,l,new S.bU(l,new X.zL(new L.q8("images/3.jpg"),C.pK),l,l,l,l,C.B),l,l,l,l)],s),0),l)}}
 A.a0z.prototype={
 $0:function(){this.a.d=this.b},
 $S:0}
@@ -54035,10 +54035,10 @@ A.J6.prototype={
 I:function(a,b){var s=null,r=L.a6M(3975930,0.5)
 return M.av(s,T.ch(H.c([L.aq("\u53d1\u8868\u6587\u7ae0",s,s,s,s,s),D.dQ(L.aq("\u53d1\u8868\u6587\u7ae0",s,s,s,A.aV(s,s,s,s,s,s,s,s,s,s,s,18,s,s,s,s,!0,s,s,s,s,s,s),s),C.r,0,C.ab,C.r,new A.a3t(b)),D.dQ(L.aq("\u7f16\u8f91\u6587\u7ae0",s,s,s,A.aV(s,s,s,s,s,s,s,s,s,s,s,18,s,s,s,s,!0,s,s,s,s,s,s),s),C.r,0,C.ab,C.r,new A.a3u(b)),L.aq("\u7f16\u8f91\u6587\u7ae0",s,s,s,s,s)],t.t),C.am),r,s,s,s,s,s,300)}}
 A.a3t.prototype={
-$0:function(){K.il(this.a,"/flweb/manage/send",t._)},
+$0:function(){K.il(this.a,"/manage/send",t._)},
 $S:0}
 A.a3u.prototype={
-$0:function(){K.il(this.a,"/flweb/manage/edit",t._)},
+$0:function(){K.il(this.a,"/manage/edit",t._)},
 $S:0}
 K.qT.prototype={
 ak:function(){return new K.GF(C.k)}}
@@ -54475,7 +54475,7 @@ L.a1u.prototype={
 $0:function(){K.il(this.a,"/",t._)},
 $S:0}
 N.yV.prototype={
-qD:function(a){a.mX(0,"/flweb/blog",new R.l_(new N.LG()))},
+qD:function(a){a.mX(0,"/blog",new R.l_(new N.LG()))},
 $ii5:1}
 N.LG.prototype={
 $2:function(a,b){return new M.jn(null)},
@@ -54483,7 +54483,7 @@ $C:"$2",
 $R:2,
 $S:380}
 E.Bz.prototype={
-qD:function(a){a.mX(0,"flweb/manage/edit",new R.l_(new E.S3()))},
+qD:function(a){a.mX(0,"manage/edit",new R.l_(new E.S3()))},
 $ii5:1}
 E.S3.prototype={
 $2:function(a,b){return new B.lF(null)},
@@ -54491,7 +54491,7 @@ $C:"$2",
 $R:2,
 $S:381}
 Z.BA.prototype={
-qD:function(a){a.mX(0,"/flweb/manage",new R.l_(new Z.S4()))},
+qD:function(a){a.mX(0,"/manage",new R.l_(new Z.S4()))},
 $ii5:1}
 Z.S4.prototype={
 $2:function(a,b){return new R.k0(null)},
@@ -54499,7 +54499,7 @@ $C:"$2",
 $R:2,
 $S:103}
 S.BB.prototype={
-qD:function(a){a.mX(0,"/flweb/manage/send",new R.l_(new S.S5()))},
+qD:function(a){a.mX(0,"/manage/send",new R.l_(new S.S5()))},
 $ii5:1}
 S.S5.prototype={
 $2:function(a,b){return new R.k0(null)},

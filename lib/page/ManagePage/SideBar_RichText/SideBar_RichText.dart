@@ -20,9 +20,11 @@ class _SideBar_RichTextState extends State<SideBar_RichText> {
     return Scaffold(
         appBar: AppBar(
           title: Nav(),
-          backgroundColor: ColorsUtil.hexColor(0x3caafa, alpha: 0.5), //透明度为0.5,
-          toolbarHeight: 100,
+//          backgroundColor: ColorsUtil.hexColor(0x3caafa, alpha: 0.5), //透明度为0.5,
+//          toolbarHeight: 100,
         ),
+        drawer: Drawer(child: Text('drawer'),),
+
         body: IndexedStack(
           // index: childIndex,
           children: [

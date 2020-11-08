@@ -193,7 +193,7 @@ class _SelectMenu2State extends State<SelectMenu2> {
         Text('*', style: TextStyle(color: Colors.red, fontSize: 20)),
 
         Container(
-          height: inputHeight3,
+//          height: inputHeight3,
           width: screenSize,
           margin: EdgeInsets.only(left: 10, bottom: 20),
 

@@ -174,8 +174,6 @@ class _SelectMenu1State extends State<SelectMenu1> {
                       Provider.of<InputModel2>(context, listen: false)
                           .getInput(_controller2.text);
 
-
-
                     }),
               ],
             )),
@@ -195,19 +193,6 @@ class _SelectMenu1State extends State<SelectMenu1> {
     List<String> arr = ['A', 'B', 'C', 'D'];
     var screenSize = MediaQuery.of(context).size.width - 450;
     ScreenUtil.instance = ScreenUtil(width: 750, height: 1334)..init(context);
-
-    // Widget _buildArrList() {
-    //   List<Widget> arrList = []; //先建一个数组用于存放循环生成的widget
-    //   arr.forEach((element) {
-    //     arrList.add(Text(element));
-    //   });
-    //   return Column(children: arrList);
-    // }
-
-
-
-
-
     return Stack(
       children: [
         Positioned(
@@ -216,7 +201,7 @@ class _SelectMenu1State extends State<SelectMenu1> {
                 Text('*', style: TextStyle(color: Colors.red, fontSize: 20))),
 
         Container(
-          height: inputHeight2,
+//          height: inputHeight2,
           width: screenSize,
           margin: EdgeInsets.only(left: 15, bottom: 20),
           // padding:  EdgeInsets.only(left:50,right: 100),

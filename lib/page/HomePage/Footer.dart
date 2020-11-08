@@ -59,6 +59,8 @@ class _FooterState extends State<Footer> {
                   ),
                 ),
                 RaisedButton(
+                  color:Colors.transparent,
+                    hoverColor: Colors.grey,
                     child:Text('博客',
                       style: TextStyle(
                         color: Colors.white,

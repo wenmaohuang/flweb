@@ -72,7 +72,7 @@ class _Rich_TextState extends State<Rich_Text> {
       print('${_controller1.text}45');
 
       try {
-        final response = await Dio().post('http://localhost:3004/article/send',
+        final response = await Dio().post('http://localhost:3004/flweb/article/send',
             data: {'title': _controller1.text,'type':input2,'tag':input3,'content':_controller4.text,'readcount':0,'day':day,'month':month,'year':year});
         print(1);
         // print(response.data+'er');

@@ -122,15 +122,15 @@ class _HomePageState extends State<HomePage>
       _InfoInput = Container(
         padding: new EdgeInsets.only(top: 250, left: 40, right: 40, bottom: 19),
         child: Container(
-          width: 350,
-          height: 40.0,
+          width: 450,
+          height: 50.0,
           padding: new EdgeInsets.only(left: 10),
           decoration: new BoxDecoration(
-            color: Colors.blue[200],
-            borderRadius: new BorderRadius.circular(25.0),
+            color: Colors.white,
+            borderRadius: new BorderRadius.circular(10.0),
           ),
           child: TextFormField(
-            style: new TextStyle(color: Colors.white70, fontSize: 14),
+            style: new TextStyle(color: Colors.black, fontSize: 18),
             //输入文字颜色和大小
             controller: myController,
             onChanged: (String val) {
@@ -141,9 +141,10 @@ class _HomePageState extends State<HomePage>
             decoration: InputDecoration(
               hintText: '请输入关键字搜索',
               //文字提示
-              hintStyle: new TextStyle(color: Colors.white70),
+
+              hintStyle: new TextStyle(color: Colors.black26,fontSize: 18),
               //提示文字颜色
-              icon: Icon(Icons.search, color: Colors.white70),
+              icon: Icon(Icons.search, color: Colors.black),
               //图标
               border: InputBorder.none, //去掉下划线
             ),
@@ -222,15 +223,16 @@ class _HomePageState extends State<HomePage>
         body: IndexedStack(
       children: [
         Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage("images/3.jpg"),
-              fit: BoxFit.cover,
-            ),
-          ),
+
           child: ListView(
             children: <Widget>[
               Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage("images/3.jpg"),
+                    fit: BoxFit.cover,
+                  ),
+                ),
                 // height:400,
                 child: Column(
                   children: [

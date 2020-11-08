@@ -138,15 +138,20 @@ class _UrlListState extends State<UrlList> {
     return Column(
       children: [
         Container(
-          width: 350,
-          height: 40.0,
+          width: 450,
+          height: 50.0,
           padding: new EdgeInsets.only(left: 10),
           decoration: new BoxDecoration(
-            color: Colors.blue[200],
-            borderRadius: new BorderRadius.circular(25.0),
+            color: Colors.white,
+            border: new Border.all(
+                color: Colors.grey,
+                width: 2,
+                style: BorderStyle.solid
+            ),
+            borderRadius: new BorderRadius.circular(10.0),
           ),
           child: TextFormField(
-            style: new TextStyle(color: Colors.white70, fontSize: 14),
+            style: new TextStyle(color: Colors.black, fontSize: 18),
             //输入文字颜色和大小
             onChanged: (String val) {
               List<String> newKeysResult = [];
@@ -180,9 +185,9 @@ class _UrlListState extends State<UrlList> {
             decoration: InputDecoration(
               hintText: '请输入关键字搜索',
               //文字提示
-              hintStyle: new TextStyle(color: Colors.white70),
+              hintStyle: new TextStyle(color: Colors.black26,fontSize: 18),
               //提示文字颜色
-              icon: Icon(Icons.search, color: Colors.white70),
+              icon: Icon(Icons.search, color: Colors.black),
               //图标
               border: InputBorder.none, //去掉下划线
             ),

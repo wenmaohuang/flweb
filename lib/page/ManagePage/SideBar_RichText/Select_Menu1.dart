@@ -167,10 +167,9 @@ class _SelectMenu1State extends State<SelectMenu1> {
                       Future(() => throw 'we have a problem')
 
                           .catchError((error) => print('$error'))
-                          .whenComplete(() => _onChildSubmit2())
                       .whenComplete(() =>checkInputHeight2() )
                       ;
-
+                      _onChildSubmit2();
                       Provider.of<InputModel2>(context, listen: false)
                           .getInput(_controller2.text);
 

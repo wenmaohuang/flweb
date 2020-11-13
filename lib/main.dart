@@ -101,7 +101,7 @@ class _HomeState extends State<Home> {
       //手机布局
       _largeScreen = true;
       _bottomBar = null;
-      print('手机布局');
+      print('手机布局!!!!!!!!!');
     }
     final router = Router();
     Routes.configureRoutes(router);

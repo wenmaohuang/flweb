@@ -50,7 +50,8 @@ class Toast {
 }
 
 class _SelectMenu1State extends State<SelectMenu1> {
-  TextEditingController _controller2;
+//  TextEditingController _controller2;
+  var _controller2 = new TextEditingController();
 
   String _name;
 
@@ -70,10 +71,10 @@ class _SelectMenu1State extends State<SelectMenu1> {
   void _onChildSubmit2() {
     final form = _formKey.currentState;
     print('${form.validate()}99');
-//    if (form.validate()) {
-//      form.save();
-//
-//    }
+    if (form.validate()) {
+      form.save();
+
+    }
   }
 
   @override
@@ -142,13 +143,18 @@ class _SelectMenu1State extends State<SelectMenu1> {
                     focusNode.unfocus();
 
                     setState(() {
-                      _controller2 = new TextEditingController(text: '选项1');
+                      _controller2.text = '选项2';
+
                     });
-                    Future(() => throw 'we have a problem')
-                        .catchError((error) => print('$error'))
-                        .whenComplete(() => _onChildSubmit2())
-                    .whenComplete(() => checkInputHeight2())
-                    ;
+                    _onChildSubmit2();
+
+//                    Future(() => throw 'we have a problem')
+//                        .catchError((error) => print('$error'))
+//                    .whenComplete(() => )
+//                    ;
+                    checkInputHeight2();
+
+                    print(_controller2.text+'asd');
                     Provider.of<InputModel2>(context, listen: false)
                         .getInput(_controller2.text);
 
@@ -159,19 +165,20 @@ class _SelectMenu1State extends State<SelectMenu1> {
                     onTap: () {
 
                       focusNode.unfocus();
-
-                      setState(() {
-                        _controller2 = new TextEditingController(text: '选项2');
-                      });
-
-                      Future(() => throw 'we have a problem')
-
-                          .catchError((error) => print('$error'))
-                      .whenComplete(() =>checkInputHeight2() )
-                      ;
-                      _onChildSubmit2();
                       Provider.of<InputModel2>(context, listen: false)
                           .getInput(_controller2.text);
+                      setState(() {
+                        _controller2.text = '选项2';
+                      });
+
+//                      Future(() => throw 'we have a problem')
+//
+//                          .catchError((error) => print('$error'))
+//                      .whenComplete(() => )
+//                      ;
+                      _onChildSubmit2();
+                      checkInputHeight2();
+
 
                     }),
               ],
@@ -219,15 +226,17 @@ class _SelectMenu1State extends State<SelectMenu1> {
               controller: _controller2,
               onTap: () {
                 var inputHeight = MediaQuery.of(context).size.height;
+
               },
               onChanged: (String val) {
                 print('${val}78');
+                print(_controller2.text+'-=');
+
                 _onChildSubmit2();
 
                 checkInputHeight2();
 
 
-                print('${Provider.of<InputHeight2>(context).height2}-=');
 
               },
               focusNode: focusNode,

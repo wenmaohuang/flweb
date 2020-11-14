@@ -133,7 +133,9 @@ class _SelectMenu2State extends State<SelectMenu2> {
 
                     // Toast.show(context: context, message: "选择了选项3");
                     setState(() {
-                      _controller3 = new TextEditingController(text: '选项3');
+//                      _controller3 = new TextEditingController(text: '选项3');
+                      _controller3.text = '选项3';
+
                     });
 
 
@@ -158,7 +160,9 @@ class _SelectMenu2State extends State<SelectMenu2> {
 
                       // Toast.show(context: context, message: "选择了选项4");
                       setState(() {
-                        _controller3 = new TextEditingController(text: '选项4');
+//                        _controller3 = new TextEditingController(text: '选项4');
+                        _controller3.text = '选项4';
+
                       });
 
                       Future(() => throw 'we have a problem')
@@ -188,14 +192,17 @@ class _SelectMenu2State extends State<SelectMenu2> {
 
     var screenSize = MediaQuery.of(context).size.width - 450;
 
-    return Row(
+    return Stack(
       children: [
-        Text('*', style: TextStyle(color: Colors.red, fontSize: 20)),
+        Positioned(
+            top: 10,
+            child:
+            Text('*', style: TextStyle(color: Colors.red, fontSize: 20))),
 
         Container(
 //          height: inputHeight3,
           width: screenSize,
-          margin: EdgeInsets.only(left: 10, bottom: 20),
+          margin: EdgeInsets.only(left: 15, bottom: 20),
 
           // padding:  EdgeInsets.only(left:50,right: 100),
           child: Form(

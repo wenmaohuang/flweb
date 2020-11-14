@@ -53690,7 +53690,7 @@ else P.ar("\u624b\u673a\u5e03\u5c40!!!!!!!!!")
 s=new Z.DK(new Y.UP(H.c([],t.a7)))
 T.ajz(s)
 $.ah2=s
-return S.aaB(M.DS(null,T.B2(this.f,0),null),"/manage",s.gI8())}}
+return S.aaB(M.DS(null,T.B2(this.f,0),null),"/",s.gI8())}}
 S.yF.prototype={
 I:function(a,b){var s=null,r=t.t
 return M.av(s,T.ch(H.c([M.av(s,L.ao("\u70ed\u95e8\u6587\u7ae0",s,s,s,A.aV(s,s,s,s,s,s,s,s,s,s,s,20,s,s,s,s,!0,s,s,s,s,s,s),s),s,s,new S.bU(s,s,new F.c3(C.m,C.m,new Y.co(C.i1,1,C.E),C.m),s,s,s,C.A),s,s,new V.ab(0,10,40,30),300),M.av(s,T.dc(H.c([M.av(new K.cJ(0,0),s,s,s,new S.bU(C.ra,s,s,K.a6s(new P.bw(25,25)),s,s,C.A),20,s,s,20),L.ao("title",s,s,s,A.aV(s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,!0,s,s,s,s,s,s),s)],r),C.a0,C.a6,C.a2),s,s,s,s,s,new V.ab(0,0,0,10),300)],r),C.am),C.ny,s,s,150,new V.ab(0,20,0,0),s,350)}}

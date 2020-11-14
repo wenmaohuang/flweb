@@ -109,7 +109,7 @@ class _HomeState extends State<Home> {
     return MaterialApp(
 // onGenerateRoute: onGenerateRoute
       onGenerateRoute: Application.router.generator,
-      initialRoute: '/manage',
+      initialRoute: '/',
       home:Scaffold(
         body:IndexedStack(
           index: currentIndex,//当前页面序号
